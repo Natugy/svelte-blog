@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
 
   export let data;
-  console.log(data);
+  // console.log(data);
   let details = data.movieDetails
 </script>
 
