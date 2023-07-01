@@ -1,4 +1,4 @@
-import { PUBLIC_MONGO_DB } from "$env/static/public"
+import { MONGO_DB } from "$env/static/private"
 import clientPromise from "$lib/db/mongodb"
 
 /**
@@ -6,7 +6,7 @@ import clientPromise from "$lib/db/mongodb"
  */
 export async function findById(id){
     try {
-        const db = (await clientPromise).db(PUBLIC_MONGO_DB)
+        const db = (await clientPromise).db(MONGO_DB)
         const review = await db.collection("review").findOne({id : id})
         return review
     } catch (error) {

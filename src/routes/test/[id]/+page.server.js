@@ -1,9 +1,8 @@
 
 import { detailMovie } from "$lib/db/movie";
 import clientPromise from "$lib/db/mongodb.js";
-
+import { MONGO_DB } from "$env/static/private";
 import { findById } from "$lib/services/reviewService.js";
-import { PUBLIC_MONGO_DB } from "$env/static/public";
 
 // @ts-ignore
 export async function load({ params }) {
@@ -12,11 +11,11 @@ export async function load({ params }) {
   try {
     const response = await detailMovie(id)
     const movieDetails = await response.json();
-    const dataReview = null//await findById(id);
+    const dataReview = await findById(id);
     // console.log(movieDetails);
      let review
     if(!dataReview){
-      review= null
+      review= dataReview
     }
     else {
       let jsonData = JSON.stringify(dataReview)
@@ -41,7 +40,7 @@ export const actions = {
 	default: async ({ cookies, request, params }) => {
     const { id } = params
 		const data = await request.formData();
-    const testDb = (await clientPromise).db(PUBLIC_MONGO_DB)
+    const testDb = (await clientPromise).db(MONGO_DB)
     testDb.collection("review").insertOne({id, review: data.get('review')})
 		
 	}
