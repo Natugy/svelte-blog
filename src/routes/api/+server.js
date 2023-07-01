@@ -1,4 +1,4 @@
-import { connectToDatabase } from "$lib/mongodb";
+import { connectToDatabase } from "$lib/db/mongodb";
 import { json } from "@sveltejs/kit";
 
 export async function POST({ request, cookies }) {

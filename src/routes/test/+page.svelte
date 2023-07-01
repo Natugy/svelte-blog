@@ -1,5 +1,5 @@
 <script>
-    import { searchMovies } from '$lib/movie.js';
+    import { searchMovies } from '$lib/db/movie.js';
     import PreviewMovie from '../../lib/components/PreviewMovie.svelte';
     
   
