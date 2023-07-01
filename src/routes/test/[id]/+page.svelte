@@ -14,7 +14,7 @@
     <p>Release Date: {details.release_date}</p>
     <p>Overview: {details.overview}</p> 
 
-  {#if data.review === null}
+  <!-- {#if data.review === null}
     <p> no review</p>
     <form method="POST">
       <label>
@@ -27,5 +27,5 @@
     </form>
     {:else}
     <p>{data.review.review}</p>
-  {/if}  
+  {/if}   -->
 </main>
