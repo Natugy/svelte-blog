@@ -15,7 +15,7 @@ export async function load({ params }) {
     // console.log(movieDetails);
      let review
     if(!dataReview){
-      review= dataReview
+      review= null
     }
     else {
       let jsonData = JSON.stringify(dataReview)

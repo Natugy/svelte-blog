@@ -9,12 +9,12 @@
 
 <main>
   
-    <img src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}  alt="">
-    <h1>{details.title}</h1>
-    <p>Release Date: {details.release_date}</p>
-    <p>Overview: {details.overview}</p> 
+    <img src={`https://image.tmdb.org/t/p/w500/${data.movieDetails.poster_path}`}  alt="">
+    <h1>{data.movieDetails.title}</h1>
+    <p>Release Date: {data.movieDetails.release_date}</p>
+    <p>Overview: {data.movieDetails.overview}</p> 
 
-  <!-- {#if data.review === null}
+  {#if data.review === null}
     <p> no review</p>
     <form method="POST">
       <label>
@@ -27,5 +27,5 @@
     </form>
     {:else}
     <p>{data.review.review}</p>
-  {/if}   -->
+  {/if}  
 </main>
