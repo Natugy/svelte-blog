@@ -1,4 +1,5 @@
-import { MONGO_DB } from "$env/static/private";
+
+import { PUBLIC_MONGO_DB } from "$env/static/public";
 import clientPromise from "$lib/db/mongodb";
 import { json } from "@sveltejs/kit";
 
@@ -6,7 +7,7 @@ export async function POST({ request, cookies }) {
 	const { description } = await request.json();
 
 	const movie = description
-    const db = (await clientPromise).db(MONGO_DB)
+    const db = (await clientPromise).db(PUBLIC_MONGO_DB)
     const collection = db.collection('test');
 
     // Insérer les détails du film dans la collection
