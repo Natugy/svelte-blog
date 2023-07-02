@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
 
   export let data;
-  console.log(data);
+  
   let details = data.movieDetails
   let note = 0
 </script>
@@ -19,7 +19,8 @@
     </div>
   </div>
 
-  {#if data.review === null}
+  {#if data.review === null }
+  {#if data.adminMode}
   <form method="POST" action="?/publish">
     <h2>Ajouter un avis</h2>
       <label>
@@ -40,8 +41,15 @@
       </label>
       <button>envoyer</button>
     </form>
+  {/if}
     {:else}
-    <p>{data.review.review}</p>
+    <div class="review">
+      <h2>L'avis de Natugy :</h2>
+      <h3>{data.review.title}</h3>
+      <p>{data.review.review}</p>
+      <h4>Note : {data.review.note}</h4>
+
+    </div>
   {/if}  
 </main>
 
@@ -118,5 +126,33 @@ p {
     margin-right: 20px;
   }
 }
+
+.review {
+  
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.review h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.review p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.review h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 
 </style>

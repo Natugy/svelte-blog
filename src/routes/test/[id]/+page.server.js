@@ -5,14 +5,19 @@ import { MONGO_DB } from "$env/static/private";
 import { findById, transformToJSON } from "$lib/services/reviewService.js";
 
 // @ts-ignore
-export async function load({ params }) {
+export async function load({ params, cookies }) {
   const { id } = params;
   
   try {
     const response = await detailMovie(id)
     const movieDetails = await response.json();
     const dataReview = await findById(id);
-     let review
+    let adminMode = false
+    if(cookies.get('admin')){
+      
+      adminMode = true;
+    }
+    let review
     if(!dataReview){
       review= dataReview
     }
@@ -22,7 +27,8 @@ export async function load({ params }) {
 
     return {
       movieDetails,
-      review 
+      review,
+      adminMode 
     };
   } catch (error) {
     console.error('Erreur lors de la récupération des détails du film :', error);

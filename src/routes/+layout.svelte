@@ -1,12 +1,17 @@
+<script>
+  export let data;
+
+</script>
+
 <body>
     <header>
     <nav>
         <a href="/"> home</a>
         <a href="/search"> Recherche film</a>
         <a href="/reviews">reviews</a>
-        <div>
-          
-        </div>
+        {#if data.adminMode}
+        <form method="POST" action="/api"><button>disconnect</button></form>
+        {/if}
     </nav>
 </header>
 <main>
@@ -14,7 +19,7 @@
 </main>
 
 <footer>
-    <p> ceci est mon footer</p>
+    <p> ceci est mon <a href="/adminMode">footer</a> </p>
 </footer>
 </body>
 
