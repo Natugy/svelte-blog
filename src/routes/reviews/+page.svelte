@@ -1,8 +1,10 @@
 <script>
+    import PreviewReview from "$lib/components/PreviewReview.svelte";
+
     
     export let data;
 </script>
 
 {#each data.reviews as review}
-    <p>{review.review}</p>
+    <PreviewReview review={review}/>
 {/each}

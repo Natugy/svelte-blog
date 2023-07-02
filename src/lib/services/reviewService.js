@@ -7,7 +7,7 @@ import clientPromise from "$lib/db/mongodb"
 export async function findById(id){
     try {
         const db = (await clientPromise).db(MONGO_DB)
-        const review = await db.collection("review").findOne({id : id})
+        const review = await db.collection("review").findOne({movieId : id})
         return review
     } catch (error) {
         console.error('Erreur lors de la recherche du film par titre:');

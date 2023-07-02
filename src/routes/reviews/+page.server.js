@@ -6,7 +6,6 @@ export async function load() {
     const reviewsData = await findAll()
     
     const reviews = transformToJSON(reviewsData)
-    console.log(reviews);
     return {
         reviews
     };
