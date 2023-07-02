@@ -12,7 +12,7 @@ export async function load({ params }) {
     const response = await detailMovie(id)
     const movieDetails = await response.json();
     const dataReview = await findById(id);
-    // console.log(movieDetails);
+    // console.log(movieDetails); 
      let review
     if(!dataReview){
       review= dataReview
@@ -37,7 +37,7 @@ export async function load({ params }) {
 }
 
 export const actions = {
-	default: async ({ cookies, request, params }) => {
+	publish: async ({ cookies, request, params }) => {
     const { id } = params
 		const data = await request.formData();
     const testDb = (await clientPromise).db(MONGO_DB)

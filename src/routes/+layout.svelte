@@ -2,8 +2,8 @@
     <header>
     <nav>
         <a href="/"> home</a>
-        <a href="/test"> test</a>
-        <a href="/message"> test message</a>
+        <a href="/search"> Recherche film</a>
+        <a href="/reviews">reviews</a>
         <div>
           
         </div>

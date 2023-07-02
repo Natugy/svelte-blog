@@ -14,3 +14,23 @@ export async function findById(id){
         throw error;
     }
 }
+
+export async function findAll() {
+    try{
+        const db = (await clientPromise).db(MONGO_DB)
+        const reviews = await db.collection("review").find().toArray()
+        return reviews
+    }
+    catch(error){
+        console.error('Review introuvable')
+        throw error
+    }
+}
+
+/**
+ * @param {any} data
+ */
+export function transformToJSON(data) {
+    const dataStr = JSON.stringify(data)
+    return JSON.parse(dataStr)
+}

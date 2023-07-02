@@ -16,7 +16,7 @@
 
   {#if data.review === null}
     <p> no review</p>
-    <form method="POST">
+    <form method="POST" action="?/publish">
       <label>
         Votre ressentis :
         <input
