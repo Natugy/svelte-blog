@@ -2,6 +2,7 @@ import { MONGO_DB } from "$env/static/private";
 import clientPromise from "$lib/db/mongodb";
 import { json } from "@sveltejs/kit";
 
+// @ts-ignore
 export async function POST({ request, cookies }) {
 	const { description } = await request.json();
 

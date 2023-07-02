@@ -12,7 +12,6 @@ export async function load({ params }) {
     const response = await detailMovie(id)
     const movieDetails = await response.json();
     const dataReview = await findById(id);
-    // console.log(movieDetails); 
      let review
     if(!dataReview){
       review= dataReview
@@ -21,7 +20,6 @@ export async function load({ params }) {
       review= transformToJSON(dataReview)
     }
 
-    console.log(review);
     return {
       movieDetails,
       review 
