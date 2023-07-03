@@ -8,50 +8,54 @@
   let note = 0
 </script>
 
-<main>
-  <div class="container">
+<div class="container">
     <img src={`https://image.tmdb.org/t/p/w500/${data.movieDetails.poster_path}`}  alt="">
-    <div>
-      <h1>{data.movieDetails.title}</h1>
-      <p>Release Date: {data.movieDetails.release_date}</p>
-      <p>Overview: {data.movieDetails.overview}</p> 
+    <div class="left-container">
+      <div class="movie-detail">
+        <h1>{data.movieDetails.title}</h1>
+        <p>Release Date: {data.movieDetails.release_date}</p>
+        <p>Overview: {data.movieDetails.overview}</p> 
+      </div>
+      
 
-    </div>
-  </div>
+    
+  
 
-  {#if data.review === null }
-  {#if data.adminMode}
-  <form method="POST" action="?/publish">
-    <h2>Ajouter un avis</h2>
-      <label>
-        Titre de la review
-        <input
-          name="title"
-          autocomplete="off"
-          required
-        />
-      </label>
-      <label >
-        Review
-        <textarea name="review" required ></textarea>
-      </label>
-      <label>
-        Note : {note}
-        <input name="note" type="range" bind:value={note} min="0" max="10" />
-      </label>
-      <button>envoyer</button>
-    </form>
-  {/if}
-    {:else}
-    <div class="review">
-      <h2>L'avis de Natugy :</h2>
-      <h3>{data.review.title}</h3>
-      <p>{data.review.review}</p>
-      <h4>Note : {data.review.note}</h4>
+      {#if data.review === null }
+      {#if data.adminMode}
+      <form method="POST" action="?/publish">
+        <h2>Ajouter un avis</h2>
+          <label>
+            Titre de la review
+            <input
+              name="title"
+              autocomplete="off"
+              required
+            />
+          </label>
+          <label >
+            Review
+            <textarea name="review" required ></textarea>
+          </label>
+          <label>
+            Note : {note}
+            <input name="note" type="range" bind:value={note} min="0" max="10" />
+          </label>
+          <button>envoyer</button>
+        </form>
+      {/if}
+        {:else}
+        <div class="review">
+          <h2>L'avis de Natugy :</h2>
+          <h3>{data.review.title}</h3>
+          <p>{data.review.review}</p>
+          <h4>Note : {data.review.note}</h4>
 
-    </div>
-  {/if}  
-</main>
+        </div>
+      {/if}
+    </div>  
+</div>
+
 
 <style>
   form {
@@ -124,11 +128,12 @@ p {
 
   img {
     margin-right: 20px;
+    margin-bottom: 0px;
   }
 }
 
 .review {
-  
+  padding-top: 25px;
   max-width: 1200px;
   margin: 0 auto;
 }
