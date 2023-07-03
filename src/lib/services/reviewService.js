@@ -18,7 +18,8 @@ export async function findById(id){
 export async function findAll() {
     try{
         const db = (await clientPromise).db(MONGO_DB)
-        const reviews = await db.collection("review").find().toArray()
+        const reviews = (await db.collection("review").find().sort({_id:-1}).toArray())
+        console.log(reviews);
         return reviews
     }
     catch(error){
